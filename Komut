@@ -1,0 +1,9 @@
+arch-chroot /mnt bash -c "
+sed -i '/^\[custom\]/,/^Server/d' /etc/pacman.conf
+sed -i 's/^#\[multilib\]/[multilib]/' /etc/pacman.conf
+sed -i '/^\[multilib\]/{n;s/^#Include/Include/}' /etc/pacman.conf
+pacman -Syy
+pacman -S --noconfirm nvidia nvidia-utils nvidia-settings lib32-nvidia-utils lib32-mesa lib32-vulkan-intel lib32-vulkan-icd-loader egl-wayland
+mkinitcpio -P
+grub-mkconfig -o /boot/grub/grub.cfg
+"
