@@ -1,0 +1,219 @@
+{
+    "appearance": {
+        "font": {
+            "family": {
+                "clock": "Rubik",
+                "material": "Material Symbols Rounded",
+                "mono": "CaskaydiaCove NF",
+                "sans": "Rubik"
+            },
+            "size": { "scale": 1 }
+        },
+        "anim": {
+            "durations": { "scale": 1 }
+        },
+        "padding":  { "scale": 1 },
+        "rounding": { "scale": 1 },
+        "spacing":  { "scale": 1 },
+        "transparency": {
+            "enabled": false,
+            "base": 0.85,
+            "layers": 0.4
+        }
+    },
+    "general": {
+        "logo": "caelestia",
+        "apps": {
+            "terminal": ["foot"],
+            "audio":    ["pavucontrol"],
+            "playback": ["mpv"],
+            "explorer": ["thunar"]
+        },
+        "battery": {
+            "warnLevels": [
+                { "level": 20, "title": "Düşük pil",          "message": "Şarj cihazını takmanı öneririm",        "icon": "battery_android_frame_2" },
+                { "level": 10, "title": "Pil kritik seviyede", "message": "Şarj cihazını hemen tak!",             "icon": "battery_android_frame_1" },
+                { "level": 5,  "title": "PİL KRİTİK!",         "message": "HEMEN ŞARJ ET!",                       "icon": "battery_android_alert", "critical": true }
+            ],
+            "criticalLevel": 3
+        },
+        "idle": {
+            "lockBeforeSleep":   true,
+            "inhibitWhenAudio":  true,
+            "timeouts": [
+                { "timeout": 180, "idleAction": "lock" },
+                { "timeout": 300, "idleAction": "dpms off", "returnAction": "dpms on" },
+                { "timeout": 600, "idleAction": ["systemctl", "suspend-then-hibernate"] }
+            ]
+        }
+    },
+    "bar": {
+        "persistent": true,
+        "showOnHover": true,
+        "dragThreshold": 20,
+        "entries": [
+            { "id": "logo",         "enabled": true },
+            { "id": "workspaces",   "enabled": true },
+            { "id": "spacer",       "enabled": true },
+            { "id": "activeWindow", "enabled": true },
+            { "id": "spacer",       "enabled": true },
+            { "id": "tray",         "enabled": true },
+            { "id": "clock",        "enabled": true },
+            { "id": "statusIcons",  "enabled": true },
+            { "id": "power",        "enabled": true }
+        ],
+        "clock": {
+            "background": false,
+            "showDate":   false,
+            "showIcon":   true
+        },
+        "workspaces": {
+            "shown":                5,
+            "perMonitorWorkspaces": true,
+            "showWindows":          true,
+            "activeIndicator":      true,
+            "activeLabel":          "󰮯",
+            "occupiedLabel":        "󰮯",
+            "label":                "  ",
+            "activeTrail":          false,
+            "occupiedBg":           false
+        },
+        "status": {
+            "showBattery":    true,
+            "showBluetooth":  true,
+            "showNetwork":    true,
+            "showWifi":       true,
+            "showAudio":      false,
+            "showMicrophone": false,
+            "showKbLayout":   false,
+            "showLockStatus": true
+        },
+        "activeWindow": {
+            "compact":    false,
+            "inverted":   false,
+            "showOnHover": true
+        },
+        "tray": {
+            "background": false,
+            "compact":    false,
+            "recolour":   false
+        },
+        "popouts": {
+            "activeWindow": true,
+            "statusIcons":  true,
+            "tray":         true
+        },
+        "scrollActions": {
+            "brightness": true,
+            "workspaces": true,
+            "volume":     true
+        }
+    },
+    "dashboard": {
+        "enabled":           true,
+        "showOnHover":       true,
+        "dragThreshold":     50,
+        "mediaUpdateInterval": 500
+    },
+    "launcher": {
+        "actionPrefix":   ">",
+        "specialPrefix":  "@",
+        "vimKeybinds":    false,
+        "maxShown":       7,
+        "maxWallpapers":  9,
+        "enableDangerousActions": false,
+        "showOnHover":    false,
+        "favouriteApps":  [],
+        "hiddenApps":     [],
+        "useFuzzy": {
+            "apps":       false,
+            "actions":    false,
+            "schemes":    false,
+            "variants":   false,
+            "wallpapers": false
+        }
+    },
+    "sidebar": {
+        "enabled":       true,
+        "dragThreshold": 80
+    },
+    "osd": {
+        "enabled":          true,
+        "enableBrightness": true,
+        "enableMicrophone": false,
+        "hideDelay":        2000
+    },
+    "notifs": {
+        "actionOnClick":       false,
+        "clearThreshold":      0.3,
+        "defaultExpireTimeout": 5000,
+        "expandThreshold":     20,
+        "openExpanded":        false,
+        "expire":              false
+    },
+    "lock": {
+        "recolourLogo": false,
+        "hideNotifs":   false
+    },
+    "session": {
+        "enabled":       true,
+        "vimKeybinds":   false,
+        "dragThreshold": 30
+    },
+    "background": {
+        "enabled": true,
+        "desktopClock": {
+            "enabled":  false,
+            "position": "bottom-right",
+            "scale":    1.0
+        },
+        "visualiser": {
+            "enabled":  false,
+            "autoHide": true,
+            "blur":     false
+        }
+    },
+    "services": {
+        "audioIncrement":       0.05,
+        "brightnessIncrement":  0.05,
+        "maxVolume":            1.0,
+        "defaultPlayer":        "Spotify",
+        "gpuType":              "",
+        "weatherLocation":      "Ankara",
+        "useFahrenheit":        false,
+        "useTwelveHourClock":   false,
+        "smartScheme":          true,
+        "visualiserBars":       45
+    },
+    "paths": {
+        "wallpaperDir":   "~/Pictures/Wallpapers",
+        "lyricsDir":      "~/Music/lyrics",
+        "noNotifsPic":    "root:/assets/dino.png",
+        "lockNoNotifsPic":"root:/assets/dino.png",
+        "mediaGif":       "root:/assets/bongocat.gif",
+        "sessionGif":     "root:/assets/kurukuru.gif"
+    },
+    "utilities": {
+        "enabled":    true,
+        "maxToasts":  4,
+        "toasts": {
+            "audioInputChanged":  true,
+            "audioOutputChanged": true,
+            "capsLockChanged":    true,
+            "chargingChanged":    true,
+            "configLoaded":       true,
+            "dndChanged":         true,
+            "gameModeChanged":    true,
+            "kbLayoutChanged":    true,
+            "nowPlaying":         false
+        },
+        "quickToggles": [
+            { "id": "wifi",      "enabled": true },
+            { "id": "bluetooth", "enabled": true },
+            { "id": "mic",       "enabled": true },
+            { "id": "settings",  "enabled": true },
+            { "id": "gameMode",  "enabled": true },
+            { "id": "dnd",       "enabled": true }
+        ]
+    }
+}

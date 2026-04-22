@@ -1,0 +1,119 @@
+# ~/.config/starship.toml
+# ──────────────────────────────────────────────────────────────────────
+# Starship prompt konfigürasyonu.
+# Renk paleti: Catppuccin Mocha bazlı, caelestia tema sistemiyle uyumlu.
+#
+# Caelestia entegrasyonu:
+#   caelestia-cli, tema değiştiğinde ~/.local/state/caelestia/theme/
+#   altına token dosyaları yazar. Oradan starship'e renk aktarmak için
+#   fish config'ine şu satır eklenebilir (opsiyonel, gelişmiş kullanım):
+#   set -x STARSHIP_CONFIG ~/.config/starship.toml
+#
+# Şu an sabit Catppuccin Mocha renkleri kullanılıyor.
+# Caelestia dinamik renklerini kullanmak istersen:
+#   caelestia-cli → cli.json → theme.enableTerm = true yapıldığında
+#   terminal renk paletini günceller, starship otomatik uyum sağlar.
+
+add_newline = false
+
+# Sıralama: [Logo] > [Saat] > [Kullanıcı] > [Dizin] > [Git/Dil] > [Karakter]
+format = """
+[](fg:#313244)\
+[  ](bg:#313244 fg:#89b4fa)\
+[](bg:#45475a fg:#313244)\
+$time\
+[](bg:#585b70 fg:#45475a)\
+$username\
+[](bg:#89b4fa fg:#585b70)\
+$directory\
+[](fg:#89b4fa bg:#313244)\
+$git_branch\
+$git_status\
+$python\
+$rust\
+$golang\
+$nodejs\
+$cpp\
+[](fg:#313244) $character"""
+
+# ── SAAT ──────────────────────────────────────────────────────────────
+[time]
+disabled    = false
+time_format = "%R"
+style       = "bg:#45475a fg:#cdd6f4"
+format      = "[  $time ]($style)"
+
+# ── KULLANICI ─────────────────────────────────────────────────────────
+[username]
+show_always = true
+style_user  = "bg:#585b70 fg:#cdd6f4"
+style_root  = "bg:#585b70 fg:#f38ba8"
+format      = "[ $user ]($style)"
+
+# ── DİZİN ─────────────────────────────────────────────────────────────
+[directory]
+style             = "bg:#89b4fa fg:#11111b"
+format            = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+substitutions     = { "~" = " " }
+
+# ── GIT BRANCH ────────────────────────────────────────────────────────
+[git_branch]
+symbol = " "
+style  = "fg:#89b4fa bg:#313244"
+format = "[ $symbol$branch ]($style)"
+
+# ── GIT STATUS ────────────────────────────────────────────────────────
+[git_status]
+style           = "fg:#f9e2af bg:#313244"
+format          = '([$all_status$ahead_behind]($style) )'
+conflicted      = "⚡"
+ahead           = "⇡${count}"
+behind          = "⇣${count}"
+diverged        = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked       = "?${count}"
+stashed         = "󰏗 "
+modified        = "!${count}"
+staged          = "+${count}"
+renamed         = "»${count}"
+deleted         = "✘${count}"
+
+# ── DİLLER ────────────────────────────────────────────────────────────
+[python]
+symbol = " "
+style  = "fg:#89dceb bg:#313244"
+format = "[ $symbol($version) ]($style)"
+
+[cpp]
+symbol = " "
+style  = "fg:#f5c2e7 bg:#313244"
+format = "[ $symbol($version) ]($style)"
+
+[rust]
+symbol = "󱘗 "
+style  = "fg:#fab387 bg:#313244"
+format = "[ $symbol($version) ]($style)"
+
+[golang]
+symbol = " "
+style  = "fg:#89dceb bg:#313244"
+format = "[ $symbol($version) ]($style)"
+
+[nodejs]
+symbol = " "
+style  = "fg:#a6e3a1 bg:#313244"
+format = "[ $symbol($version) ]($style)"
+
+# ── KARAKTER ──────────────────────────────────────────────────────────
+[character]
+success_symbol = "[❯](bold #89b4fa)"
+error_symbol   = "[❯](bold #f38ba8)"
+vimcmd_symbol  = "[❮](bold #a6e3a1)"
+
+# ── DEVRE DIŞI (gereksiz modüller kapalı, prompt hızı için) ───────────
+[package]
+disabled = true
+
+[cmd_duration]
+disabled = true

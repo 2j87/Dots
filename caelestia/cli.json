@@ -1,0 +1,49 @@
+{
+    "theme": {
+        "enableTerm":      true,
+        "enableHypr":      true,
+        "enableDiscord":   false,
+        "enableSpicetify": false,
+        "enableFuzzel":    true,
+        "enableBtop":      true,
+        "enableGtk":       true,
+        "enableQt":        true
+    },
+    "wallpaper": {
+        "postHook": ""
+    },
+    "record": {
+        "extraArgs": []
+    },
+    "toggles": {
+        "sysmon": {
+            "btop": {
+                "enable": true,
+                "match": [
+                    { "class": "btop", "title": "btop", "workspace": { "name": "special:sysmon" } }
+                ],
+                "command": ["foot", "-a", "btop", "-T", "btop", "fish", "-C", "exec btop"]
+            }
+        },
+        "music": {
+            "spotify": {
+                "enable": true,
+                "match": [
+                    { "class": "Spotify" },
+                    { "initialTitle": "Spotify" },
+                    { "initialTitle": "Spotify Free" }
+                ],
+                "command": ["spotify"],
+                "move": true
+            }
+        },
+        "communication": {
+            "discord": {
+                "enable": false,
+                "match":  [{ "class": "discord" }],
+                "command": ["discord", "--ozone-platform-hint=wayland"],
+                "move":   true
+            }
+        }
+    }
+}
